@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  trieve-helm:
+  - apiVersion: v2
+    appVersion: 0.12.0
+    created: "2025-02-03T16:31:16.960053-06:00"
+    description: Helm chart expressing Trieve deployment without any dependencies
+    digest: 0f5db999dc258422cd6b755a3f5ff941015767f24cace9ca85168789b89c471b
+    name: trieve-helm
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/qdrddr/helm/refs/heads/main/build/trieve-helm-0.1.18.tgz
+    version: 0.1.18
+generated: "2025-02-03T16:31:16.952069-06:00"
