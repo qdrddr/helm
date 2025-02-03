@@ -23,8 +23,8 @@ case $(sed --help 2>&1) in
   *) set sed -i '';;
 esac
 
-VERSION=$(yq eval ".entries.supabase[] | select(.version == \"$HELM_VERSION\") | .version" index.yaml | head -n 1)
-echo "VERSION: ${VERSION}"
+#VERSION=$(yq eval ".entries.supabase[] | select(.version == \"$HELM_VERSION\") | .version" index.yaml | head -n 1)
+#echo "VERSION: ${VERSION}"
 URL0=$(yq eval ".entries.supabase[] | select(.version == \"$HELM_VERSION\") | .urls[0]" index.yaml)
 echo "URL0: ${URL0}"
 cp ${URL0} ${MYHELM_REPO_PATH}/build/
