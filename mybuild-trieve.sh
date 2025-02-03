@@ -2,6 +2,7 @@
 MYHELM_REPO_PATH=$PWD
 mkdir -p ${MYHELM_REPO_PATH}/build/
 GITREPO_NAME=trieve
+#cd .. ; git clone https://github.com/devflowinc/trieve.git
 cd ../${GITREPO_NAME}
 git pull
 git fetch --tags

@@ -1,8 +1,9 @@
 #!/bin/bash
 MYHELM_REPO_PATH=$PWD
 mkdir -p ${MYHELM_REPO_PATH}/build/
-#https://github.com/supabase-community/supabase-kubernetes.git
+
 GITREPO_NAME=supabase-kubernetes
+#cd .. ; git clone https://github.com/supabase-community/supabase-kubernetes.git
 cd ../${GITREPO_NAME}
 git pull
 #git fetch --tags
