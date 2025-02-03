@@ -3,6 +3,7 @@ MYHELM_REPO_PATH=$PWD
 mkdir -p ${MYHELM_REPO_PATH}/build/
 GITREPO_NAME=trieve
 cd ../${GITREPO_NAME}
+git pull
 git fetch --tags
 REPO_VERSION=$(git tag --sort=-v:refname | head -n 1)
 echo "GITREPO_NAME: ${GITREPO_NAME} | REPO_VERSION: ${REPO_VERSION}"
