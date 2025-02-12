@@ -1,7 +1,11 @@
 #!/bin/bash
 MYHELM_REPO_PATH=$PWD
-mkdir -p ${MYHELM_REPO_PATH}/build/
+GITREPO_CHART_PATH=deploy/chart/local-path-provisioner
 GITREPO_NAME=local-path-provisioner
+HELM_CHART_NAME=local-path-provisioner
+
+###################
+mkdir -p ${MYHELM_REPO_PATH}/build/
 #cd .. ; git clone https://github.com/devflowinc/trieve.git
 cd ../${GITREPO_NAME}
 git pull
@@ -10,10 +14,10 @@ REPO_VERSION=$(git tag --sort=-v:refname | head -n 1)
 echo "GITREPO_NAME: ${GITREPO_NAME} | REPO_VERSION: ${REPO_VERSION}"
 git checkout ${REPO_VERSION}
 
-HELM_VERSION=$(grep '^version:' ./deploy/chart/local-path-provisioner/Chart.yaml | awk '{print $2}')
+HELM_VERSION=$(grep '^version:' ./${GITREPO_CHART_PATH}/Chart.yaml | awk '{print $2}')
 echo "HELM_VERSION: ${HELM_VERSION}"
 
-helm package ./deploy/chart/local-path-provisioner -d build/
+helm package ./${GITREPO_CHART_PATH} -d build/
 helm repo index ./
 # sed 's+build+head+g' ./index.yaml > ./index.yaml
 
@@ -23,9 +27,9 @@ case $(sed --help 2>&1) in
   *) set sed -i '';;
 esac
 
-#VERSION=$(yq eval ".entries.local-path-provisioner[] | select(.version == \"$HELM_VERSION\") | .version" index.yaml | head -n 1)
+#VERSION=$(yq eval ".entries.${HELM_CHART_NAME}[] | select(.version == \"$HELM_VERSION\") | .version" index.yaml | head -n 1)
 #echo "VERSION: ${VERSION}"
-URL0=$(yq eval ".entries.local-path-provisioner[] | select(.version == \"$HELM_VERSION\") | .urls[0]" index.yaml)
+URL0=$(yq eval ".entries.${HELM_CHART_NAME}[] | select(.version == \"$HELM_VERSION\") | .urls[0]" index.yaml)
 echo "URL0: ${URL0}"
 cp ${URL0} ${MYHELM_REPO_PATH}/build/
 cp index.yaml ${MYHELM_REPO_PATH}/index-${GITREPO_NAME}.yaml
@@ -36,8 +40,10 @@ cp index.yaml ${MYHELM_REPO_PATH}/index-${GITREPO_NAME}.yaml
 
 cd ${MYHELM_REPO_PATH}
 cp index.yaml index-previous.yaml
+#Merge index.yaml files
 yq eval-all '. as $item ireduce ({}; . *+ $item)' "index-previous.yaml" "index-${GITREPO_NAME}.yaml" > index.yaml
 
 git add *
+git status
 git commit -m "Update index.yaml & build with ${GITREPO_NAME} for helm version ${HELM_VERSION}"
 git push
