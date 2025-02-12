@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   supabase:
   - apiVersion: v2
-    created: "2025-02-03T16:44:11.816502-06:00"
+    created: "2025-02-12T13:23:32.680384-06:00"
     description: The open source Firebase alternative.
-    digest: 793853ccbcc3cdf11066140d70973f8e06957a122ccd7f4b8004c7c52146a47f
+    digest: eab750a45e10ef21c0050914c28b76ef98f37b93c354d823fe67f0c41b65ea25
     icon: https://avatars.githubusercontent.com/u/54469796?s=280&v=4
     name: supabase
     type: application
@@ -12,7 +12,7 @@ entries:
     - https://raw.githubusercontent.com/qdrddr/helm/refs/heads/main/build/supabase-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v2
-    created: "2025-02-03T16:44:11.814213-06:00"
+    created: "2025-02-12T13:23:32.677961-06:00"
     description: The open source Firebase alternative.
     digest: a0d6c0627c049642f3a9a1d068ecc4601d87c26d0326b47422223a7660424e31
     name: supabase
@@ -21,7 +21,7 @@ entries:
     - https://raw.githubusercontent.com/qdrddr/helm/refs/heads/main/build/supabase-0.0.2.tgz
     version: 0.0.2
   - apiVersion: v2
-    created: "2025-02-03T16:44:11.812484-06:00"
+    created: "2025-02-12T13:23:32.675195-06:00"
     description: The open source Firebase alternative.
     digest: 651547b54edc5cfbac1ed39cb42fc574ee766ff8c1c61aa6cedef84d2faa358f
     name: supabase
@@ -29,4 +29,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/qdrddr/helm/refs/heads/main/build/supabase-0.0.1.tgz
     version: 0.0.1
-generated: "2025-02-03T16:44:11.81067-06:00"
+generated: "2025-02-12T13:23:32.673118-06:00"
