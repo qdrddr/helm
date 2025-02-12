@@ -47,3 +47,8 @@ git add *
 git status
 git commit -m "Update index.yaml & build with ${GITREPO_NAME} for helm version ${HELM_VERSION}"
 git push
+
+#verify
+helm repo add qdrddr https://raw.githubusercontent.com/qdrddr/helm/refs/heads/main
+helm repo update qdrddr
+helm search repo qdrddr/${HELM_CHART_NAME}
